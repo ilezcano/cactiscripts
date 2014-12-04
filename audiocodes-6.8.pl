@@ -101,27 +101,26 @@ elsif ($command eq "query")
 
 		foreach (@indexes) {print ($_, $$test{ "$acPMSIPIPGroupOutDialogsTotal.$_.0"})}
 		}
-		#my @blorf = map { "$_:$$output{$_}" } keys $output;
-		#my $output = $session->get_table(-baseoid => $ipGroupDescription);
+	}
 
-		#die $error if $error;
-		
-		#my $test = $session->get_table(-varbindlist => [
-			#$ipGroupDescription,
-			#"$ipGroupDescription.$index",
-			#]);
+elsif ($command eq "get")
+	{
+	my $return = "U";
+	my $providedindex = $ARGV[4];
+
+	my @pollthese = ( "$ipGroupDescription.$providedindex", "$ipGroupSIPGroupName.$providedindex", "$acPMSIPIPGroupInDialogsTotal.$providedindex.0", "$acPMSIPIPGroupOutDialogsTotal.$providedindex.0");
+
+	my $test = $session->get_request(-varbindlist => \@pollthese);
+	die $error if $error;
+	
+	foreach my $oid (keys $test)
+		{
+		if (($ARGV[3] eq 'description') && (oid_base_match($ipGroupDescription, $oid))) {$return= $$test{$oid}}
+		elsif (($ARGV[3] eq 'name') && (oid_base_match($ipGroupSIPGroupName, $oid))) {$return= $$test{$oid}}
+		elsif (($ARGV[3] eq 'indialog') && (oid_base_match($acPMSIPIPGroupInDialogsTotal, $oid))) {$return= $$test{$oid}}
+		elsif (($ARGV[3] eq 'outdialog') && (oid_base_match($acPMSIPIPGroupOutDialogsTotal, $oid))) {$return= $$test{$oid}}
+		}
+	print $return;
 	}
 
 $session->close;
-#		foreach my $index (@indexes)
-#			{
-#			print "Index $index ";
-#
-#			my $test = $session->get_request(-varbindlist => [
-#				"$ipGroupSIPGroupName.$index",
-#				"$acPMSIPIPGroupInDialogsTotal.$index.0",
-#				"$acPMSIPIPGroupOutDialogsTotal.$index.0"]);
-#
-#			die $error if $error;
-#			print pl2xml($test);
-#			}
