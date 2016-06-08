@@ -1,0 +1,66 @@
+<interface>
+	<name>Get NetScaler SNMP Interfaces</name>
+	<description>Queries a NetScaler for a list of monitorable interfaces</description>
+	<oid_index>.1.3.6.1.4.1.5951.4.1.1.54.1.1</oid_index>
+	<oid_index_parse>OID/REGEXP:^1\.3\.6\.1\.4\.1\.5951\.4\.1\.1\.54\.1\.[12]\.(.*)$</oid_index_parse>
+	<index_title_format>|chosen_order_field|</index_title_format>
+
+	<fields>
+		<ifName>
+			<name>Name</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.54.1.1</oid>
+		</ifName>
+		<ifMedia>
+			<name>Media</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.54.1.2</oid>
+		</ifMedia>
+		<ifTotRxBytes>
+			<name>Receive Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.54.1.3</oid>
+		</ifTotRxBytes>
+		<ifTotTxBytes>
+			<name>Transmit Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.54.1.7</oid>
+		</ifTotTxBytes>
+		<ifErrDroppedTxPkts>
+			<name>Transmit Drops</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.54.1.38</oid>
+		</ifErrDroppedTxPkts>
+		<ifErrDroppedRxPkts>
+			<name>Receive Drops</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.54.1.22</oid>
+		</ifErrDroppedRxPkts>
+		<ifErrPktRx>
+			<name>Transmit Errors</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.54.1.28</oid>
+		</ifErrPktRx>
+		<ifErrPktTx>
+			<name>Receive Errors</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.54.1.33</oid>
+		</ifErrPktTx>
+	</fields>
+</interface>

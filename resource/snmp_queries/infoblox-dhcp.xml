@@ -1,0 +1,79 @@
+<interface>
+	<name>Infoblox DHCP Stats</name>
+	<description>Queries an Infoblox for DHCP Statistics</description>
+	<oid_index>.1.3.6.1.2.1.1.5</oid_index>
+	<oid_index_parse>OID/REGEXP:^.*\.([0-9]*)$</oid_index_parse>
+	
+	<fields>
+		<SystemName>
+			<name>System Name</name>
+			<method>walk</method>
+			<source>index</source>
+			<direction>input</direction>
+			<!-- <oid>.1.3.6.1.2.1.1.5</oid> -->
+		</SystemName>
+		<TotalNoOfDiscovers>
+			<name>DHCP Discover</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.7779.3.1.1.4.1.3.1</oid>
+		</TotalNoOfDiscovers>
+		<TotalNoOfRequests>
+			<name>DHCP Requests</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.7779.3.1.1.4.1.3.2</oid>
+		</TotalNoOfRequests>
+		<TotalNoOfReleases>
+			<name>DHCP Releases</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.7779.3.1.1.4.1.3.3</oid>
+		</TotalNoOfReleases>
+		<TotalNoOfOffers>
+			<name>DHCP Offers</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.7779.3.1.1.4.1.3.4</oid>
+		</TotalNoOfOffers>
+		<TotalNoOfAcks>
+			<name>DHCP ACKs</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.7779.3.1.1.4.1.3.5</oid>
+		</TotalNoOfAcks>
+		<TotalNoOfNacks>
+			<name>DHCP NACKs</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.7779.3.1.1.4.1.3.6</oid>
+		</TotalNoOfNacks>
+		<TotalNoOfDeclines>
+			<name>DHCP Declines</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.7779.3.1.1.4.1.3.7</oid>
+		</TotalNoOfDeclines>
+		<TotalNoOfInforms>
+			<name>DHCP Informs</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.7779.3.1.1.4.1.3.8</oid>
+		</TotalNoOfInforms>
+		<TotalNoOfOthers>
+			<name>DHCP Other</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.7779.3.1.1.4.1.3.9</oid>
+		</TotalNoOfOthers>
+	</fields>
+</interface>

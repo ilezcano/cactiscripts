@@ -1,0 +1,93 @@
+<interface>
+	<name>Get App Firewall Counters</name>
+	<description>Queries a NetScaler App Firewall for Violation statistics</description>
+	<oid_index>.1.3.6.1.4.1.5951.4.1.1.64.1.1</oid_index>
+	<oid_index_parse>OID/REGEXP:^1\.3\.6\.1\.4\.1\.5951\.4\.1\.1\.64\.1\.1\.([0-9]*)</oid_index_parse>
+	
+	<fields>
+		<Requests>
+			<name>Phoney Index</name>
+			<method>get</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.64.1.1</oid>
+		</Requests>
+		<ViolStartURL>
+			<name>Start URL Violations</name>
+			<method>get</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.64.1.5</oid>
+		</ViolStartURL>
+		<ViolDenyURL>
+			<name>Deny URL Violations</name>
+			<method>get</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.64.1.6</oid>
+		</ViolDenyURL>
+		<ViolBufferOverflow>
+			<name>Buffer Overflow Violations</name>
+			<method>get</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.64.1.7</oid>
+		</ViolBufferOverflow>
+		<ViolCookie>
+			<name>Cookie Consistancy Violations</name>
+			<method>get</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.64.1.8</oid>
+		</ViolCookie>
+		<ViolXSS>
+			<name>Cross-Site Scripting Violations</name>
+			<method>get</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.64.1.9</oid>
+		</ViolXSS>
+		<ViolSQL>
+			<name>SQL Injection Violations</name>
+			<method>get</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.64.1.10</oid>
+		</ViolSQL>
+		<ViolFieldformat>
+			<name>Field Format Violations</name>
+			<method>get</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.64.1.11</oid>
+		</ViolFieldformat>
+		<ViolFieldConsistency>
+			<name>Field Consistency Violations</name>
+			<method>get</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.64.1.12</oid>
+		</ViolFieldConsistency>
+		<ViolCreditCard>
+			<name>Credit Card Violations</name>
+			<method>get</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.64.1.13</oid>
+		</ViolCreditCard>
+		<ViolSafeObject>
+			<name>Safe Object Violations</name>
+			<method>get</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.64.1.14</oid>
+		</ViolSafeObject>
+		<TotalViol>
+			<name>Total Violations</name>
+			<method>get</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.1.64.1.15</oid>
+		</TotalViol>
+	</fields>
+</interface>

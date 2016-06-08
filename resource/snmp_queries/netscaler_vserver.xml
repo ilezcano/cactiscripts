@@ -1,0 +1,69 @@
+<interface>
+	<name>Get NetScaler VServer Information</name>
+	<description>Queries a NetScaler for a list of vservers</description>
+	<oid_index>.1.3.6.1.4.1.5951.4.1.3.1.1.1</oid_index>
+	<oid_num_indexes>.1.3.6.1.4.1.5951.4.1.3.5.1.0</oid_num_indexes>
+	<oid_index_parse>OID/REGEXP:^1\.3\.6\.1\.4\.1\.5951\.4\.1\.3\.1\.1\.[1-4]\.(.*)$</oid_index_parse>
+	<index_order>vsvrName:vsvrIpAddress:vsvrPort:vsvrType</index_order>
+	<index_order_type>alphabetic</index_order_type>
+	<index_title_format>|chosen_order_field|</index_title_format>
+
+	<fields>
+		<vsvrName>
+			<name>Name</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.3.1.1.1</oid>
+		</vsvrName>
+		<vsvrIpAddress>
+			<name>IP Address</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.3.1.1.2</oid>
+		</vsvrIpAddress>
+		<vsvrPort>
+			<name>Port</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.3.1.1.3</oid>
+		</vsvrPort>
+		<vsvrType>
+			<name>Type</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.3.1.1.4</oid>
+		</vsvrType>
+		<vsvrCurClntConnections>
+			<name>Client Connections</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.3.1.1.7</oid>
+		</vsvrCurClntConnections>
+		<vsvrCurSrvrConnections>
+			<name>Server Connections</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.3.1.1.8</oid>
+		</vsvrCurSrvrConnections>
+		<vsvrTotalRequestBytes>
+			<name>Request Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.3.1.1.31</oid>
+		</vsvrTotalRequestBytes>
+		<vsvrTotalResponseBytes>
+			<name>Response Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.3.1.1.33</oid>
+		</vsvrTotalResponseBytes>
+	</fields>
+</interface>

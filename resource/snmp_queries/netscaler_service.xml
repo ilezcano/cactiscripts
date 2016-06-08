@@ -1,0 +1,69 @@
+<interface>
+	<name>Get NetScaler Service Information</name>
+	<description>Queries a NetScaler for a list of services</description>
+	<oid_index>.1.3.6.1.4.1.5951.4.1.2.1.1.1</oid_index>
+	<oid_num_indexes>.1.3.6.1.4.1.5951.4.1.2.6.1.0</oid_num_indexes>
+	<oid_index_parse>OID/REGEXP:^1\.3\.6\.1\.4\.1\.5951\.4\.1\.2\.1\.1\.[1-4]\.(.*)$</oid_index_parse>
+	<index_order>svcServiceName:svcIpAddress:svcPort:svcServiceType</index_order>
+	<index_order_type>alphabetic</index_order_type>
+	<index_title_format>|chosen_order_field|</index_title_format>
+
+	<fields>
+		<svcServiceName>
+			<name>Name</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.2.1.1.1</oid>
+		</svcServiceName>
+		<svcIpAddress>
+			<name>IP Address</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.2.1.1.2</oid>
+		</svcIpAddress>
+		<svcPort>
+			<name>Port</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.2.1.1.3</oid>
+		</svcPort>
+		<svcServiceType>
+			<name>Type</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.2.1.1.4</oid>
+		</svcServiceType>
+		<svcTotalRequests>
+			<name>Requests</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.2.1.1.30</oid>
+		</svcTotalRequests>
+		<svcTotalResponses>
+			<name>Responses</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.2.1.1.32</oid>
+		</svcTotalResponses>
+		<svcRequestBytes>
+			<name>Request Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.2.1.1.31</oid>
+		</svcRequestBytes>
+		<svcResponseBytes>
+			<name>Response Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.5951.4.1.2.1.1.33</oid>
+		</svcResponseBytes>
+	</fields>
+</interface>
