@@ -1,0 +1,47 @@
+<interface>
+        <name>Get Netscaler VLAN Interfaces</name>
+        <description>Queries a netscaler for a list of monitorable vlans</description>
+        <oid_index>.1.3.6.1.4.1.5951.4.1.1.24.1.1</oid_index>
+        <!--<oid_num_indexes>.1.3.6.1.2.1.2.1.0</oid_num_indexes>-->
+        <index_order>vlanId:vlanAliasName</index_order>
+        <index_order_type>numeric</index_order_type>
+        <index_title_format>|chosen_order_field|</index_title_format>
+
+        <fields>
+                <vlanId>
+                        <name>Vlan ID</name>
+                        <method>walk</method>
+                        <source>value</source>
+                        <direction>input</direction>
+                        <oid>.1.3.6.1.4.1.5951.4.1.1.24.1.1</oid>
+                </vlanId>
+                <vlanAliasName>
+                        <name>Vlan Alias</name>
+                        <method>walk</method>
+                        <source>value</source>
+                        <direction>input</direction>
+                        <oid>.1.3.6.1.4.1.5951.4.1.1.24.1.25</oid>
+                </vlanAliasName>
+                <vlanBindIpAddress>
+                        <name>Vlan Bound IP</name>
+                        <method>walk</method>
+                        <source>value</source>
+                        <direction>input</direction>
+                        <oid>.1.3.6.1.4.1.5951.4.1.1.24.1.22</oid>
+                </vlanBindIpAddress>
+                <vlanTotRxBytes>
+                        <name>Vlan Bytes Received</name>
+                        <method>walk</method>
+                        <source>value</source>
+                        <direction>output</direction>
+                        <oid>.1.3.6.1.4.1.5951.4.1.1.24.1.17</oid>
+                </vlanTotRxBytes>
+                <vlanTotTxBytes>
+                        <name>Vlan Bytes Sent</name>
+                        <method>walk</method>
+                        <source>value</source>
+                        <direction>output</direction>
+                        <oid>.1.3.6.1.4.1.5951.4.1.1.24.1.19</oid>
+                </vlanTotTxBytes>
+        </fields>
+</interface>
