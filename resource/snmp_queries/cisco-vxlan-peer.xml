@@ -1,0 +1,55 @@
+<vteppeer>
+	<name>Get VXLAN peer statistics</name>
+	<description>Queries a host for VNet VXLAN statistics</description>
+	<oid_index>.1.3.6.1.4.1.9.9.820.1.1.3.1.4</oid_index>
+	<oid_index_parse>OID/REGEXP:.*\.(1\.1\.4\.[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)$</oid_index_parse>
+	<!--<index_order>Index</index_order>-->
+	<index_order>PeerAddress</index_order>
+	<index_order_type>numeric</index_order_type>
+	<index_title_format>|chosen_order_field|</index_title_format>
+
+	<fields>
+		<!--<Index>
+			<name>Phoney Index</name>
+			<method>walk</method>
+			<source>OID/REGEXP:.*\.((?:[0-9]+\.){6}[0-9]+)$</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.9.9.820.1.1.3.1.4</oid>
+		</Index>-->
+		<PeerAddress>
+			<name>Peer Address</name>
+			<method>walk</method>
+			<source>OID/REGEXP:.*\.([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)$</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.9.9.820.1.1.5.1.1</oid>
+		</PeerAddress>
+		<OutUnicastBytes>
+			<name>Out Unicast Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.9.9.820.1.1.5.1.2</oid>
+		</OutUnicastBytes>
+		<InUnicastBytes>
+			<name>In Unicast Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.9.9.820.1.1.5.1.6</oid>
+		</InUnicastBytes>
+		<OutMulticastBytes>
+			<name>Out Multicast Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.9.9.820.1.1.5.1.4</oid>
+		</OutMulticastBytes>
+		<InMulticastBytes>
+			<name>In Multicast Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.9.9.820.1.1.5.1.8</oid>
+		</InMulticastBytes>
+	</fields>
+</vteppeer>

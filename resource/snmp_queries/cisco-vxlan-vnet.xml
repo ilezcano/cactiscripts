@@ -1,0 +1,54 @@
+<vtep>
+	<name>Get VNet VXLAN statistics</name>
+	<description>Queries a host for VNet VXLAN statistics</description>
+	<oid_index>.1.3.6.1.4.1.9.9.820.1.1.2.1.2</oid_index>
+	<oid_index_parse>OID/REGEXP:.*\.([0-9]+\.[0-9]+)$</oid_index_parse>
+	<index_order>cnvoVNetIpMcastAddrType</index_order>
+	<index_order_type>numeric</index_order_type>
+	<index_title_format>|chosen_order_field|</index_title_format>
+
+	<fields>
+		<cnvoVNetIpMcastAddrType>
+			<name>Index</name>
+			<method>walk</method>
+			<source>OID/REGEXP:.*\.([0-9]+\.[0-9]+)$</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.9.9.820.1.1.2.1.2</oid>
+		</cnvoVNetIpMcastAddrType>
+		<BridgeDomainName>
+			<name>Bridge Domain Name</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.9.9.820.1.1.2.1.9</oid>
+		</BridgeDomainName>
+		<OutUnicastBytes>
+			<name>Out Unicast Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.9.9.820.1.1.4.1.2</oid>
+		</OutUnicastBytes>
+		<InUnicastBytes>
+			<name>In Unicast Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.9.9.820.1.1.4.1.6</oid>
+		</InUnicastBytes>
+		<OutMulticastBytes>
+			<name>Out Multicast Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.9.9.820.1.1.4.1.4</oid>
+		</OutMulticastBytes>
+		<InMulticastBytes>
+			<name>In Multicast Bytes</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.9.9.820.1.1.4.1.8</oid>
+		</InMulticastBytes>
+	</fields>
+</vtep>
